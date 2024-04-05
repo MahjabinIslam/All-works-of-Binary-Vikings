@@ -1,0 +1,24 @@
+def find_closest_number(nums, target):
+    closest_num = nums[0]
+    min_difference = abs(target - nums[0])
+
+    for num in nums[1:]:
+        difference = abs(target - num)
+        if difference < min_difference:
+            min_difference = difference
+            closest_num = num
+
+    return closest_num
+
+try:
+    num1 = float(input("Enter the first number: "))
+    num2 = float(input("Enter the second number: "))
+    num3 = float(input("Enter the third number: "))
+    target = float(input("Enter the target number: "))
+
+    closest_num = find_closest_number([num1, num2, num3], target)
+
+    print(f"The number closest to {target} is {closest_num}")
+
+except ValueError:
+    print("Please enter valid numbers.")
